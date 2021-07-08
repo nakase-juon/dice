@@ -4,19 +4,34 @@
 #include <random>
 using namespace std;
 
-int main(){
+int main()
+{
     random_device rnd;
     mt19937_64 mt(rnd());
-    uniform_int_distribution<> rand6(1,6);
-    int n,m;
+    uniform_int_distribution<> rand6(1, 6);
+    int n, m;
     int sum = 0;
-    string a;
+    string a, name;
+    n = rand6(mt);
+    m = rand6(mt);
+    sum = n + m;
     a = "Rolling the dice...";
-    n=rand6(mt);
-    m=rand6(mt);
-    sum=n+m;
-    cout<<a<<"\n";
-    cout<<"Die 1: "<<n<<"\n";
-    cout<<"Die 2: "<<m<<"\n";
-    cout<<"Total value: "<<sum<<endl;
+    cout << "What is your name?"
+         << "\n";
+    cout << "> ";
+    cin >> name;
+    cout << "Hello, " << name << "!"
+         << "\n";
+    cout << a << "\n";
+    cout << "Die 1: " << n << "\n";
+    cout << "Die 2: " << m << "\n";
+    cout << "Total value: " << sum << endl;
+    if (sum > 7)
+    {
+        cout << "You won!" << endl;
+    }
+    else
+    {
+        cout << "You lost." << endl;
+    }
 }
